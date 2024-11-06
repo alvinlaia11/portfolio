@@ -11,5 +11,13 @@ export default defineConfig({
   },
   css: {
     devSourcemap: true
+  },
+  build: {
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]'
+      }
+    }
   }
 })
