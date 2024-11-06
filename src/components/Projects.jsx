@@ -5,7 +5,7 @@ function Projects() {
     {
       title: 'Dashboard Kejaksaan',
       description: 'Sistem dashboard untuk penjadwalan tindak pidana khusus dengan fitur upload berkas dan manajemen kasus. Menggunakan React.js untuk frontend, Node.js untuk backend, dan PostgreSQL sebagai database.',
-      image: '/images/Cuplikan layar 2024-11-06 093534.png',
+      image: './images/dashboard-kejaksaan.png',
       technologies: ['React.js', 'Node.js', 'PostgreSQL', 'Express.js', 'Tailwind CSS'],
       liveLink: '#',
       githubLink: 'https://github.com/alvinlaia11/frontend-kejaksaan'
@@ -13,7 +13,7 @@ function Projects() {
     {
       title: 'MCI Landing Page',
       description: 'Desain landing page untuk MCI (Millionaire Club Indonesia) dengan fokus pada tampilan yang profesional dan informatif. Termasuk fitur showcase penghargaan, program tour, dan informasi perusahaan.',
-      image: '/images/Cuplikan layar 2024-11-06 102924.png',
+      image: './images/mci-landing.png',
       technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'Landing Page'],
       liveLink: 'https://www.figma.com/proto/zBc423NqL1DqAjdc2Vdo0b/Virtual-Intership-MCI?page-id=443%3A2107&node-id=738-8256&starting-point-node-id=1123%3A985&t=8leoNAYT2hBM6qNa-1',
       githubLink: '#'
@@ -21,7 +21,7 @@ function Projects() {
     {
       title: 'E-commerce Design',
       description: 'UI/UX design untuk aplikasi e-commerce dengan fitur login, pencarian produk, keranjang belanja, dan sistem pembayaran. Fokus pada pengalaman pengguna yang seamless dan tampilan yang modern.',
-      image: '/images/Cuplikan layar 2024-11-06 102241.png',
+      image: './images/ecommerce.png',
       technologies: ['Figma', 'UI/UX Design', 'Prototyping', 'E-commerce'],
       liveLink: 'https://www.figma.com/design/Sa9GCsUf7yzbIa2V2LeIdc/E-commerce?node-id=0-1&t=qPPbZAYUdELbHlR6-1',
       githubLink: '#'
@@ -29,7 +29,7 @@ function Projects() {
     {
       title: 'Buddha Loka Design',
       description: 'UI/UX design untuk website Buddha Loka menggunakan Figma. Website ini dirancang untuk memberikan informasi tentang Buddha Loka dengan tampilan yang modern dan user-friendly.',
-      image: '/images/Cuplikan layar 2024-11-06 100824.png',
+      image: './images/buddha-loka.png',
       technologies: ['Figma', 'UI/UX Design', 'Prototyping'],
       liveLink: 'https://www.figma.com/design/TmxSf4tfGclbjaouImAMhl/Buddha-Loka?node-id=0-1&t=yZhsTXk8OxmMeWbp-1',
       githubLink: '#'
@@ -37,7 +37,7 @@ function Projects() {
     {
       title: 'Mobile Healty App',
       description: 'Desain aplikasi mobile untuk kesehatan menggunakan Figma. Aplikasi ini dirancang untuk membantu pengguna memantau kesehatan mereka dengan fitur test kesehatan, konsultasi AI, tips kesehatan, dan konsultasi dokter.',
-      image: '/images/Cuplikan layar 2024-11-06 101336.png',
+      image: './images/health-app.png',
       technologies: ['Figma', 'Mobile Design', 'UI/UX Design', 'Prototyping'],
       liveLink: 'https://www.figma.com/design/4VaqSY8q3iQHehIEbw74sT/Desain-Mobile-Healty?node-id=0-1&t=R31SwAEpVGojx19K-1',
       githubLink: '#'
@@ -45,7 +45,7 @@ function Projects() {
     {
       title: 'Comic Reading App',
       description: 'Desain aplikasi mobile untuk membaca komik dengan fitur login, favorit, bookmark, dan rekomendasi. Interface dirancang untuk pengalaman membaca yang nyaman dengan navigasi yang intuitif.',
-      image: '/images/Cuplikan layar 2024-11-06 101700.png',
+      image: './images/comic-app.png',
       technologies: ['Figma', 'Mobile Design', 'UI/UX Design', 'Prototyping'],
       liveLink: 'https://www.figma.com/design/r4kC6DY9fiuA44MbgeAzNm/Comic-reading-app?node-id=0-1&t=dmldPupPRF8MHnQN-1',
       githubLink: '#'
