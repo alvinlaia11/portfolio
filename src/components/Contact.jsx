@@ -1,18 +1,20 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiMail, FiUser, FiMessageSquare } from 'react-icons/fi'
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Add your form submission logic here
-    console.log(formData)
+    
+    // Ambil nilai dari form
+    const name = e.target.user_name.value
+    const email = e.target.user_email.value
+    const message = e.target.message.value
+
+    // Buat body email
+    const mailtoBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`
+    
+    // Buka email client dengan data yang sudah diisi
+    window.location.href = `mailto:alvinlaia2004@gmail.com?subject=Portfolio Contact Form&body=${mailtoBody}`
   }
 
   return (
@@ -36,9 +38,8 @@ function Contact() {
               </div>
               <input
                 type="text"
+                name="user_name"
                 placeholder="Your Name"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-bg border-none rounded-lg focus:ring-2 focus:ring-primary-500 dark:text-white"
                 required
               />
@@ -50,9 +51,8 @@ function Contact() {
               </div>
               <input
                 type="email"
+                name="user_email"
                 placeholder="Your Email"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-bg border-none rounded-lg focus:ring-2 focus:ring-primary-500 dark:text-white"
                 required
               />
@@ -63,9 +63,8 @@ function Contact() {
                 <FiMessageSquare className="h-5 w-5 text-gray-400" />
               </div>
               <textarea
+                name="message"
                 placeholder="Your Message"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows="4"
                 className="w-full pl-10 pr-4 py-3 bg-gray-50 dark:bg-dark-bg border-none rounded-lg focus:ring-2 focus:ring-primary-500 dark:text-white"
                 required
