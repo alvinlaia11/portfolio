@@ -5,7 +5,7 @@ function Projects() {
     {
       title: 'Dashboard Kejaksaan',
       description: 'Sistem dashboard untuk penjadwalan tindak pidana khusus dengan fitur upload berkas dan manajemen kasus. Menggunakan React.js untuk frontend, Node.js untuk backend, dan PostgreSQL sebagai database.',
-      image: '/images/dashboard-kejaksaan.png',
+      image: './images/dashboard-kejaksaan.png',
       technologies: ['React.js', 'Node.js', 'PostgreSQL', 'Express.js', 'Tailwind CSS'],
       liveLink: '#',
       githubLink: 'https://github.com/alvinlaia11/frontend-kejaksaan'
