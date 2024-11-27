@@ -8,12 +8,143 @@
     font-family: 'Inter', sans-serif;
   }
 
+  /* Custom cursor styles */
+  * {
+    cursor: none;
+  }
+
+  .custom-cursor {
+    width: 24px;
+    height: 24px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    will-change: transform;
+  }
+
+  .cursor-pointer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    clip-path: polygon(100% 0%, 0% 50%, 100% 100%, 75% 50%);
+    background: #0ea5e9;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  .cursor-sparkle {
+    position: fixed;
+    pointer-events: none;
+    background: #0ea5e9;
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 9998;
+    will-change: transform, opacity;
+    animation: sparkle 1s ease-out infinite;
+  }
+
+  @keyframes sparkle {
+    0% {
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1) rotate(180deg);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0) rotate(360deg);
+    }
+  }
+
+  .custom-cursor.hover .cursor-pointer {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.8);
+    background: rgba(14, 165, 233, 0.8);
+  }
+
+  /* Kembalikan cursor default hanya untuk input dan textarea */
+  input, 
+  textarea {
+    cursor: text !important;
+  }
+
   body {
     @apply bg-white dark:bg-dark-bg text-gray-900 dark:text-white;
   }
 
   ::selection {
     @apply bg-primary-500/30;
+  }
+
+  .cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    background: linear-gradient(to right, #0ea5e9, transparent);
+    width: 10px;
+    height: 2px;
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: trailFade 0.5s ease-out forwards;
+  }
+
+  @keyframes trailFade {
+    0% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.1) translateY(20px);
+    }
+  }
+
+  /* Pastikan semua elemen yang bisa diklik tidak menampilkan cursor default */
+  a, button, [role="button"], 
+  input[type="submit"], 
+  input[type="button"], 
+  input[type="reset"],
+  select {
+    cursor: none !important;
+  }
+
+  /* Hanya input text dan textarea yang menampilkan cursor text */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    cursor: text !important;
+  }
+
+  /* Tambahkan animasi click effect */
+  @keyframes clickEffect {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .click-effect {
+    position: fixed;
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0ea5e9;
+    border-radius: 50%;
+    z-index: 9997;
+    animation: clickEffect 0.5s ease-out forwards;
   }
 }
 
