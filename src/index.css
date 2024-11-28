@@ -2,13 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base styles tanpa custom cursor */
 @layer base {
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', sans-serif;
   }
 
-  /* Custom cursor styles */
+  body {
+    @apply bg-white dark:bg-dark-bg text-gray-900 dark:text-white;
+  }
+
+  ::selection {
+    @apply bg-primary-500/30;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .heading {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white;
+  }
+
+  .subheading {
+    @apply text-lg text-gray-600 dark:text-gray-300;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600;
+  }
+}
+
+/* Semua custom cursor styles hanya untuk desktop */
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
   * {
     cursor: none;
   }
@@ -22,6 +57,7 @@
     left: 0;
     top: 0;
     will-change: transform;
+    transition: opacity 0.3s ease, transform 0.1s ease;
   }
 
   .cursor-pointer {
@@ -47,6 +83,29 @@
     animation: sparkle 1s ease-out infinite;
   }
 
+  .cursor-trail {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    background: linear-gradient(to right, #0ea5e9, transparent);
+    width: 10px;
+    height: 2px;
+    opacity: 0;
+    will-change: transform, opacity;
+    animation: trailFade 0.5s ease-out forwards;
+  }
+
+  .click-effect {
+    position: fixed;
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0ea5e9;
+    border-radius: 50%;
+    z-index: 9997;
+    animation: clickEffect 0.5s ease-out forwards;
+  }
+
   @keyframes sparkle {
     0% {
       opacity: 0;
@@ -62,37 +121,6 @@
     }
   }
 
-  .custom-cursor.hover .cursor-pointer {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1.8);
-    background: rgba(14, 165, 233, 0.8);
-  }
-
-  /* Kembalikan cursor default hanya untuk input dan textarea */
-  input, 
-  textarea {
-    cursor: text !important;
-  }
-
-  body {
-    @apply bg-white dark:bg-dark-bg text-gray-900 dark:text-white;
-  }
-
-  ::selection {
-    @apply bg-primary-500/30;
-  }
-
-  .cursor-trail {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    background: linear-gradient(to right, #0ea5e9, transparent);
-    width: 10px;
-    height: 2px;
-    opacity: 0;
-    will-change: transform, opacity;
-    animation: trailFade 0.5s ease-out forwards;
-  }
-
   @keyframes trailFade {
     0% {
       opacity: 0.8;
@@ -104,27 +132,6 @@
     }
   }
 
-  /* Pastikan semua elemen yang bisa diklik tidak menampilkan cursor default */
-  a, button, [role="button"], 
-  input[type="submit"], 
-  input[type="button"], 
-  input[type="reset"],
-  select {
-    cursor: none !important;
-  }
-
-  /* Hanya input text dan textarea yang menampilkan cursor text */
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="url"],
-  textarea {
-    cursor: text !important;
-  }
-
-  /* Tambahkan animasi click effect */
   @keyframes clickEffect {
     0% {
       transform: scale(1);
@@ -136,38 +143,115 @@
     }
   }
 
+  .custom-cursor.hover .cursor-pointer {
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.8);
+    background: rgba(14, 165, 233, 0.8);
+  }
+}
+
+/* Reset cursor untuk mobile dan tablet - letakkan di luar media query desktop */
+@media (max-width: 1023px), (hover: none), (pointer: coarse) {
+  * {
+    cursor: auto !important;
+  }
+
+  a, button, [role="button"], 
+  input[type="submit"], 
+  input[type="button"], 
+  input[type="reset"],
+  select {
+    cursor: pointer !important;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    cursor: text !important;
+  }
+
+  .custom-cursor,
+  .cursor-trail,
+  .cursor-sparkle,
   .click-effect {
-    position: fixed;
-    pointer-events: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #0ea5e9;
-    border-radius: 50%;
-    z-index: 9997;
-    animation: clickEffect 0.5s ease-out forwards;
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+  }
+
+  /* Tambahkan style khusus untuk touch events */
+  html:has(:active),
+  html:has(:focus) {
+    .custom-cursor,
+    .cursor-trail,
+    .cursor-sparkle,
+    .click-effect {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: none !important;
+    }
+  }
+
+  /* Disable cursor saat touch */
+  *:active,
+  *:focus {
+    cursor: auto !important;
   }
 }
 
-@layer components {
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
-  .section-padding {
-    @apply py-16 md:py-24;
-  }
-
-  .heading {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white;
-  }
-
-  .subheading {
-    @apply text-lg text-gray-600 dark:text-gray-300;
+/* Tambahkan style khusus untuk touch devices */
+@media (pointer: coarse) {
+  .custom-cursor,
+  .cursor-trail,
+  .cursor-sparkle,
+  .click-effect {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
   }
 }
 
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-primary-600;
+/* Di bagian paling bawah file, setelah semua style lainnya */
+
+/* Force hide custom cursor on mobile */
+@media (max-width: 1023px) {
+  * {
+    cursor: auto !important;
+  }
+
+  .custom-cursor,
+  .cursor-trail,
+  .cursor-sparkle,
+  .click-effect {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: none !important;
+  }
+
+  /* Reset all cursor styles */
+  a, button, input, textarea, select {
+    cursor: auto !important;
+  }
+
+  [role="button"] {
+    cursor: pointer !important;
+  }
+}
+
+/* Completely disable custom cursor features on touch devices */
+@media (hover: none), (pointer: coarse) {
+  * {
+    cursor: auto !important;
   }
 }
