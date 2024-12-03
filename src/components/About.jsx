@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 function About() {
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = 'https://drive.google.com/uc?export=download&id=1fgBIO-kv2g8aEpXe0M2pKTV9hZkoHF6H';
+    link.href = 'https://drive.google.com/uc?export=download&id=1KRJ3dVv8VDBoMdZa3hNlBcazpoNae-s6';
     link.download = 'Alvin_Laia_CV.pdf';
     document.body.appendChild(link);
     link.click();
