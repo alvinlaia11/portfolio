@@ -128,19 +128,19 @@ function About() {
         </motion.div>
       </div>
 
-      {/* Floating Menu Button */}
-      <div className="fixed bottom-24 right-8 z-50">
+      {/* Floating Menu Button - dengan responsive styling */}
+      <div className="fixed bottom-20 right-4 md:bottom-24 md:right-8 z-50">
         <div className="relative">
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="w-14 h-14 bg-primary-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+            className="w-12 h-12 md:w-14 md:h-14 bg-primary-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
           >
             {isMenuOpen ? (
-              <FaTimes className="text-xl" />
+              <FaTimes className="text-lg md:text-xl" />
             ) : (
-              <FaBars className="text-xl" />
+              <FaBars className="text-lg md:text-xl" />
             )}
           </motion.button>
 
@@ -150,7 +150,7 @@ function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
-                className="absolute bottom-16 right-0 space-y-4"
+                className="absolute bottom-16 right-0 space-y-3 md:space-y-4"
               >
                 <motion.a
                   href="https://github.com/alvinlaia11"
@@ -158,10 +158,10 @@ function About() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-14 h-14 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-900 transition-colors group relative"
+                  className="w-12 h-12 md:w-14 md:h-14 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-900 transition-colors group relative"
                 >
-                  <FaGithub className="text-xl" />
-                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  <FaGithub className="text-lg md:text-xl" />
+                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-2 py-1 rounded text-xs md:text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -translate-y-1/2 top-1/2 pointer-events-none">
                     GitHub Profile
                   </span>
                 </motion.a>
@@ -172,10 +172,10 @@ function About() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-14 h-14 bg-[#0077b5] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#006396] transition-colors group relative"
+                  className="w-12 h-12 md:w-14 md:h-14 bg-[#0077b5] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#006396] transition-colors group relative"
                 >
-                  <FaLinkedin className="text-xl" />
-                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  <FaLinkedin className="text-lg md:text-xl" />
+                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-2 py-1 rounded text-xs md:text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -translate-y-1/2 top-1/2 pointer-events-none">
                     LinkedIn Profile
                   </span>
                 </motion.a>
@@ -184,10 +184,10 @@ function About() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={handleDownloadCV}
-                  className="w-14 h-14 bg-primary-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-600 transition-colors group relative"
+                  className="w-12 h-12 md:w-14 md:h-14 bg-primary-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-600 transition-colors group relative"
                 >
-                  <FaFileDownload className="text-xl" />
-                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                  <FaFileDownload className="text-lg md:text-xl" />
+                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-2 py-1 rounded text-xs md:text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap -translate-y-1/2 top-1/2 pointer-events-none">
                     Download CV
                   </span>
                 </motion.button>
@@ -197,15 +197,15 @@ function About() {
         </div>
       </div>
 
-      {/* Scroll to Top Button - Dipindah ke kanan */}
+      {/* Scroll to Top Button - dengan responsive styling */}
       <motion.button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-8 right-8 w-14 h-14 bg-gray-200 dark:bg-dark-card text-gray-600 dark:text-gray-300 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors z-50"
+        className="fixed bottom-4 right-4 md:bottom-8 md:right-8 w-12 h-12 md:w-14 md:h-14 bg-gray-200 dark:bg-dark-card text-gray-600 dark:text-gray-300 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors z-50"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
         <svg
-          className="w-6 h-6"
+          className="w-5 h-5 md:w-6 md:h-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
