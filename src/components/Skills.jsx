@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { FaFigma, FaGithub, FaReact, FaNodeJs, FaHtml5, FaCss3Alt } from 'react-icons/fa'
-import { SiTailwindcss, SiPostgresql, SiVisualstudiocode, SiMysql, SiJavascript } from 'react-icons/si'
+import { FaFigma, FaGithub, FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaCode } from 'react-icons/fa'
+import { SiTailwindcss, SiPostgresql, SiMysql, SiJavascript } from 'react-icons/si'
 
 function Skills() {
   const skills = [
@@ -43,7 +43,7 @@ function Skills() {
 
   const tools = [
     { name: 'Figma', icon: FaFigma, color: 'hover:text-[#F24E1E]' },
-    { name: 'VS Code', icon: SiVisualstudiocode, color: 'hover:text-[#007ACC]' },
+    { name: 'VS Code', icon: FaCode, color: 'hover:text-[#007ACC]' },
     { name: 'GitHub', icon: FaGithub, color: 'hover:text-[#181717]' },
     { name: 'React', icon: FaReact, color: 'hover:text-[#61DAFB]' },
     { name: 'Node.js', icon: FaNodeJs, color: 'hover:text-[#339933]' },
