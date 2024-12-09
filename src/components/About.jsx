@@ -1,6 +1,10 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCode, FaPaintBrush, FaMobile, FaLaptopCode, FaGithub, FaFileDownload, FaTimes, FaBars, FaLinkedin } from 'react-icons/fa';
+import { useState } from 'react';
 
 function About() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleDownloadCV = () => {
     const link = document.createElement('a');
     link.href = 'https://drive.google.com/uc?export=download&id=1KRJ3dVv8VDBoMdZa3hNlBcazpoNae-s6';
@@ -10,119 +14,213 @@ function About() {
     document.body.removeChild(link);
   };
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  const buttonVariants = {
-    hover: { 
-      scale: 1.05,
-      transition: {
-        duration: 0.2,
-        yoyo: Infinity
-      }
+  const skills = [
+    {
+      icon: <FaCode className="text-4xl text-primary-500" />,
+      title: "Web Development",
+      description: "Membangun aplikasi web modern dengan React.js, Node.js, dan teknologi terkini untuk memberikan pengalaman pengguna yang optimal.",
+      technologies: ["React.js", "Node.js", "Express.js", "PostgreSQL", "MongoDB"]
     },
-    tap: { scale: 0.95 }
-  };
+    {
+      icon: <FaPaintBrush className="text-4xl text-primary-500" />,
+      title: "UI/UX Design",
+      description: "Menciptakan desain interface yang intuitif dan menarik dengan fokus pada user experience dan prinsip desain modern.",
+      technologies: ["Figma", "Adobe XD", "Prototyping", "Wireframing", "User Research"]
+    },
+    {
+      icon: <FaMobile className="text-4xl text-primary-500" />,
+      title: "Mobile Design",
+      description: "Merancang aplikasi mobile yang responsif dan user-friendly dengan memperhatikan detail dan kemudahan penggunaan.",
+      technologies: ["Mobile UI", "iOS Design", "Android Design", "Interaction Design"]
+    },
+    {
+      icon: <FaLaptopCode className="text-4xl text-primary-500" />,
+      title: "Frontend Development",
+      description: "Mengimplementasikan desain ke dalam kode dengan performa tinggi dan best practices modern.",
+      technologies: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Redux"]
+    }
+  ];
 
   return (
-    <section id="about" className="py-16 bg-gray-50 dark:bg-dark-card relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-10 dark:opacity-5">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-primary-300 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary-400 rounded-full mix-blend-multiply filter blur-xl animate-float delay-1000"></div>
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="max-w-4xl mx-auto text-center"
+    <section id="about" className="py-20 bg-white dark:bg-dark-bg relative">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto text-center mb-16"
         >
-          <motion.h2 
-            variants={itemVariants}
-            className="text-3xl md:text-4xl font-bold mb-8 dark:text-white"
-          >
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">
             About Me
-          </motion.h2>
-
-          <motion.div 
-            variants={itemVariants}
-            className="space-y-6"
-          >
-            <motion.p 
-              variants={itemVariants}
-              className="text-base md:text-lg dark:text-gray-300 leading-relaxed"
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+            Saya adalah seorang <span className="text-primary-500 font-semibold">Full Stack Developer</span> dan 
+            <span className="text-primary-500 font-semibold"> UI/UX Designer</span> yang passionate dalam menciptakan 
+            solusi digital yang inovatif. Dengan pengalaman dalam pengembangan web dan desain interface, 
+            saya menggabungkan kreativitas dan technical expertise untuk menghasilkan produk yang tidak hanya 
+            fungsional tetapi juga menarik secara visual.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#contact"
+              className="bg-primary-500 text-white px-8 py-3 rounded-full font-medium hover:bg-primary-600 transition-colors"
             >
-              Hello! I'm Alvin Nonitehe Syas Putra Laia, a passionate frontend developer with a keen eye for creating 
-              beautiful and functional web experiences. I specialize in building responsive websites 
-              and web applications using modern technologies.
-            </motion.p>
-
-            <motion.p 
-              variants={itemVariants}
-              className="text-base md:text-lg dark:text-gray-300 leading-relaxed"
-            >
-              I am a dedicated frontend developer and UI/UX designer with a passion for creating visually appealing, 
-              user-centric, and responsive digital experiences. With a strong foundation in HTML, CSS, JavaScript, 
-              and modern frameworks like React, I craft interfaces that are not only functional but also intuitive 
-              and visually engaging. My expertise in UI/UX design allows me to approach projects with a deep understanding 
-              of user behavior, ensuring that every interaction is smooth and accessible. I thrive in collaborative 
-              environments, leveraging my technical and creative skills to bridge the gap between design and development, 
-              delivering products that are both innovative and aligned with best practices.
-            </motion.p>
-          </motion.div>
-
-          <motion.div 
-            variants={itemVariants}
-            className="flex justify-center gap-4 mt-8"
-          >
-            <motion.button 
-              onClick={handleDownloadCV}
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transition-shadow duration-300"
-            >
-              Download CV
-            </motion.button>
-
-            <motion.a 
-              href="https://github.com/alvinlaia11" 
-              target="_blank"
-              variants={buttonVariants}
-              whileHover="hover"
-              whileTap="tap"
-              className="border-2 border-primary-600 text-primary-600 dark:text-primary-400 px-6 py-2.5 rounded-full hover:bg-primary-50 dark:hover:bg-dark-bg transition-colors duration-300"
-            >
-              GitHub Profile
+              Hire Me
             </motion.a>
-          </motion.div>
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="#projects"
+              className="bg-gray-100 dark:bg-dark-card text-gray-800 dark:text-white px-8 py-3 rounded-full font-medium hover:bg-gray-200 dark:hover:bg-dark-card/80 transition-colors"
+            >
+              View Projects
+            </motion.a>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-gray-50 dark:bg-dark-card p-6 rounded-xl hover:shadow-lg transition-shadow"
+            >
+              <div className="flex flex-col items-center">
+                {skill.icon}
+                <h3 className="text-xl font-bold mt-4 mb-2 dark:text-white">{skill.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-center mb-4">{skill.description}</p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {skill.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 px-3 py-1 rounded-full text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mt-20 text-center"
+        >
+          <h3 className="text-2xl font-bold mb-6 dark:text-white">My Journey</h3>
+          <div className="max-w-3xl mx-auto p-6 bg-gray-50 dark:bg-dark-card rounded-xl">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              Perjalanan saya dimulai sebagai seorang web developer yang kemudian berkembang menjadi 
+              full-stack developer dan UI/UX designer. Saya telah berkolaborasi dengan berbagai klien 
+              dan tim untuk menghasilkan solusi digital yang inovatif dan user-centered. Fokus utama saya 
+              adalah menciptakan produk yang tidak hanya memenuhi kebutuhan teknis tetapi juga memberikan 
+              pengalaman pengguna yang luar biasa.
+            </p>
+          </div>
         </motion.div>
       </div>
+
+      {/* Floating Menu Button */}
+      <div className="fixed bottom-24 right-8 z-50">
+        <div className="relative">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="w-14 h-14 bg-primary-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-600 transition-colors"
+          >
+            {isMenuOpen ? (
+              <FaTimes className="text-xl" />
+            ) : (
+              <FaBars className="text-xl" />
+            )}
+          </motion.button>
+
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="absolute bottom-16 right-0 space-y-4"
+              >
+                <motion.a
+                  href="https://github.com/alvinlaia11"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-14 h-14 bg-gray-800 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-gray-900 transition-colors group relative"
+                >
+                  <FaGithub className="text-xl" />
+                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    GitHub Profile
+                  </span>
+                </motion.a>
+
+                <motion.a
+                  href="https://www.linkedin.com/in/alvin-laia-0b6b25250/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-14 h-14 bg-[#0077b5] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#006396] transition-colors group relative"
+                >
+                  <FaLinkedin className="text-xl" />
+                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    LinkedIn Profile
+                  </span>
+                </motion.a>
+
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={handleDownloadCV}
+                  className="w-14 h-14 bg-primary-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-primary-600 transition-colors group relative"
+                >
+                  <FaFileDownload className="text-xl" />
+                  <span className="absolute right-full mr-3 bg-gray-800 text-white px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    Download CV
+                  </span>
+                </motion.button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Scroll to Top Button - Dipindah ke kanan */}
+      <motion.button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        className="fixed bottom-8 right-8 w-14 h-14 bg-gray-200 dark:bg-dark-card text-gray-600 dark:text-gray-300 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors z-50"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M5 10l7-7m0 0l7 7m-7-7v18"
+          />
+        </svg>
+      </motion.button>
+
     </section>
-  )
+  );
 }
 
-export default About
+export default About;

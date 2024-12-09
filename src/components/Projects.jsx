@@ -7,15 +7,15 @@ function Projects() {
       description: 'Sistem dashboard untuk penjadwalan tindak pidana khusus dengan fitur upload berkas dan manajemen kasus. Menggunakan React.js untuk frontend, Node.js untuk backend, dan PostgreSQL sebagai database.',
       image: './images/dashboard-kejaksaan.png',
       technologies: ['React.js', 'Node.js', 'PostgreSQL', 'Express.js', 'Tailwind CSS'],
-      liveLink: 'https://systemkejaksaan.site/login',
-      githubLink: 'https://github.com/alvinlaia11/frontend-kejaksaan'
+      liveLink: '#',
+      githubLink: '#'
     },
     {
       title: 'Website Jajanan Menyala',
       description: 'Website company profile untuk UKM Jajanan Menyala dengan fitur katalog produk, informasi perusahaan, dan form pemesanan. Dibangun menggunakan React.js, Tailwind CSS, dan terintegrasi dengan WhatsApp untuk pemesanan.',
       image: './images/jajananmenyala.jpg',
       technologies: ['React.js', 'Tailwind CSS', 'WhatsApp Integration', 'Responsive Design'],
-      liveLink: 'https://ukmjajananmenyala.site/',
+      liveLink: '#',
       githubLink: '#'
     },
     {
@@ -56,6 +56,22 @@ function Projects() {
       image: './images/comic-app.png',
       technologies: ['Figma', 'Mobile Design', 'UI/UX Design', 'Prototyping'],
       liveLink: 'https://www.figma.com/design/r4kC6DY9fiuA44MbgeAzNm/Comic-reading-app?node-id=0-1&t=dmldPupPRF8MHnQN-1',
+      githubLink: '#'
+    },
+    {
+      title: 'UMKM Center',
+      description: 'Platform digital untuk membantu UMKM dalam memasarkan produk mereka secara online. Dilengkapi dengan fitur manajemen produk, profil UMKM, dan sistem pemesanan yang terintegrasi.',
+      image: './images/UMKM Center.jpg',
+      technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js', 'Tailwind CSS'],
+      liveLink: '#',
+      githubLink: '#'
+    },
+    {
+      title: 'TechCorp Website',
+      description: 'Website company profile untuk perusahaan teknologi TechCorp dengan desain modern dan responsif. Menampilkan layanan perusahaan, portfolio, dan form kontak yang interaktif.',
+      image: './images/TechCorp.jpg',
+      technologies: ['React.js', 'Tailwind CSS', 'Responsive Design', 'Animation'],
+      liveLink: '#',
       githubLink: '#'
     }
   ]
