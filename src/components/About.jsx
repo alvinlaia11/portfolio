@@ -167,7 +167,7 @@ function About() {
                 </motion.a>
 
                 <motion.a
-                  href="https://www.linkedin.com/in/alvin-laia-0b6b25250/"
+                  href="https://www.linkedin.com/in/alvinlaia"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1 }}

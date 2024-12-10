@@ -34,7 +34,7 @@ function Footer() {
                 <span className="md:hidden">GitHub</span>
               </a>
               <a 
-                href="https://www.linkedin.com/in/alvin-nonitehe-syas-putra-laia-6504a825a/" 
+                href="https://www.linkedin.com/in/alvinlaia" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:text-blue-400 transition-colors flex items-center gap-2"

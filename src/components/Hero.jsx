@@ -137,7 +137,7 @@ function Hero() {
               <FiGithub size={24} />
             </motion.a>
             <motion.a
-              href="https://www.linkedin.com/in/alvin-nonitehe-syas-putra-laia-6504a825a/"
+              href="https://www.linkedin.com/in/alvinlaia"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ y: -5 }}
